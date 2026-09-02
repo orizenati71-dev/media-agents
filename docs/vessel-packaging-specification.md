@@ -70,54 +70,58 @@ visible warning rather than failing silently.
 
 ## 5. Recommended Purchase Quantities (workbook default output)
 
-**Do not read "quoted" as "in stock."** Nothing has been purchased for cards, stickers, or boxes
-— only priced. The table below is what the workbook calculates is actually needed to purchase
-right now, using the expected full-sellout order count (≈104.35 orders) plus a 5% waste buffer,
-regardless of what's been quoted:
+**Do not read "quoted" as "buyable at that rate in any quantity."** Vendors have priced fixed
+lots, not a per-unit rate — you cannot buy 110 cards for 110/1,000 of ₪250. The table below
+separates what's actually *needed* from what can actually be *bought* at a known price:
 
-| Component | Quoted | Ordered | Required (incl. 5% waste) | Remaining to purchase | Vendor MOQ | Recommended order qty | Cash required |
-|---|---|---|---|---|---|---|---|
-| Pouches | 500 | 500 | 126 | **0** | N/A (bundled) | 0 | ₪0.00 |
-| Cloths | 500 | 500 | 110 | **0** | N/A (bundled) | 0 | ₪0.00 |
-| Thank-you cards | 1,000 | 0 | 110 | **110** | UNKNOWN | 110 | ₪27.50 |
-| Stickers | 100 | 0 | 110 | **110** | UNKNOWN | 110 | ₪88.00 |
-| Shipping boxes (unprinted) | 160 | 0 | 110 | **110** | UNKNOWN | 110 | ₪481.25 |
-| Box printing (per box, add-on) | — | — | 110 | 110 | N/A | 110 | **UNKNOWN** |
+| Component | Required (incl. 5% waste) | Economic usage value (analytical only) | Available quoted lot | Lot adequate? | Already ordered | Actual cash required |
+|---|---|---|---|---|---|---|
+| Pouches | 126 | ₪125.98 | 500 for ₪499.94 | Yes | 500 | **₪0** — already covered |
+| Cloths | 110 | ₪78.56 | 500 for ₪357.10 | Yes | 500 | **₪0** — already covered |
+| Thank-you cards | 110 | ₪27.50 | 1,000 for ₪250 | Yes | 0 | **₪250** — must buy the full 1,000-lot |
+| Stickers | 110 | ₪88.00 | 100 for ₪80 | **NO** | 0 | **UNKNOWN** — the only quote is too small |
+| Shipping boxes (unprinted) | 110 | ₪481.25 | 160 for ₪700 | Yes | 0 | **₪700** — must buy the full 160-lot |
+| Box printing (per box, add-on) | 110 | — | no quote exists | — | — | **UNKNOWN** |
 
-Pouches and cloths need no new purchase — the 500 already on order comfortably covers the
-requirement. **Cards, stickers, and boxes have never actually been ordered**, despite being
-quoted, and all three need a real purchase order placed for ~110 units each once vendor MOQs are
-confirmed (the recommended quantities above will round up to the vendor's actual lot size once
-known — e.g., if stickers can only be bought in batches of some size N, the recommendation
-becomes the next multiple of N at or above 110, not 110 itself).
+"Economic usage value" is what the required quantity would be worth at the quoted per-unit rate
+— a planning metric, **not a real purchase option**, since none of these vendors will sell you an
+arbitrary fraction of their quoted lot. Pouches and cloths need no new purchase — the 500 already
+on order comfortably covers the requirement, at no incremental cost. **Cards and boxes have never
+actually been ordered**, and since their only quoted lot is large enough to cover what's needed,
+the real purchasing decision is binary: buy the full 1,000-card lot for ₪250, and the full
+160-box lot for ₪700 — there is no smaller purchase option on record. **Stickers are different:**
+the only quote (100 for ₪80) does not cover the 110 required, so there is currently no known way
+to buy enough — a new, larger quote is needed before a sticker order can even be sized.
 
 ## 6. Sticker Sufficiency — Explicit Finding
 
-**The 100 quoted stickers are NOT sufficient.** Required with the waste buffer: 110. Quoted: 100
-— a shortfall even before accounting for the fact that zero stickers have actually been ordered.
-This is not a marginal gap; it holds under the workbook's default assumptions and gets worse if
-the bundle rate or order count comes in higher than modeled.
+**The 100 quoted stickers are NOT sufficient**, and this isn't just a shortfall you can top up at
+the same rate: the only sticker quote on file is for 100 units, required is 110, and **no vendor
+quote exists yet for any quantity that actually covers the requirement.** Both the price and the
+available order quantity for an adequate sticker purchase are unknown. This holds under the
+workbook's default assumptions and gets worse if the bundle rate or order count comes in higher
+than modeled.
 
 ## 7. Cash Required
 
-- **Full program value** (all required components at cost, as quoted, excluding printing):
-  **₪801.30**.
-- **Additional cash required — new purchases only** (cards + stickers + boxes; pouches/cloths
-  excluded because any shortfall there is currently ₪0 and their cost already rides on the
-  existing, separately-tracked supplier payment): **₪596.75**.
-- Box printing add-on, VAT adjustment, and vendor delivery are each genuinely unknown and are
-  **not** folded into that ₪596.75 as if they were zero. The workbook's all-in total displays
-  **"INCOMPLETE — COST UNKNOWN"** until all three are entered.
-- Packaging cost per normal order and per bundle order likewise show **"INCOMPLETE — COST
-  UNKNOWN (printing not yet quoted)"** rather than a number that quietly assumes free printing.
+- **Full program economic value** (all required components valued at their quoted per-unit rate,
+  excluding printing — an analytical figure, not a purchase price): **₪801.30**.
+- **Known quoted cash required — cards + boxes** (the only two components with an adequate,
+  purchasable quote, at their full lot price): **₪250 + ₪700 = ₪950.** This is the minimum real
+  cash need identified so far; do **not** read the earlier ₪596.75 figure — it incorrectly
+  scaled bulk quotes down to a smaller quantity, which is not something either vendor has offered.
+- Stickers, box printing, VAT, and vendor delivery are all genuinely unknown and are **not**
+  folded into that ₪950 as if they were zero or estimable. The workbook's all-in total displays
+  **"INCOMPLETE — COST UNKNOWN"** until all four are resolved.
+- Packaging cost per normal order and per bundle order (a separate, economic-allocation metric —
+  not a claim about what's purchasable) likewise show **"INCOMPLETE — COST UNKNOWN (printing not
+  yet quoted)"** rather than a number that quietly assumes free printing.
 
 **Supplier-order packaging value (informational, not additive to the cash figures above):**
-pouches + cloths represent **₪857.04** of value inside the jewelry supplier's invoice.
-**₪3,500** of that whole invoice's deposit has been paid, and **₪3,500** remains due before
-shipment — but that deposit was **not** allocated to individual invoice lines, so there is no
-confirmed "packaging's share of the deposit" figure. The workbook shows one **illustrative,
-clearly labeled MODEL ASSUMPTION** only (≈₪428.55, if the deposit were assumed to cover every
-invoice line proportionally by value) — this is not a fact and should not be treated as one.
+pouches + cloths represent **₪857.04** of value inside the jewelry supplier's invoice. Approximately
+**₪3,500** of that whole invoice's deposit has been paid, and approximately **₪3,500** remains due
+before shipment — that deposit was **not** allocated to individual invoice lines, so there is no
+confirmed, and no illustrative, "packaging's share of the deposit" figure to report.
 
 ## 8. Physical Packing Test Checklist
 
@@ -153,14 +157,16 @@ committing to final packaging quantities or box artwork:
 **Thank-you cards:**
 - Confirm whether the ₪250 quote includes VAT.
 - Confirm whether delivery is included or billed separately.
-- Confirm the minimum order quantity and lead time for an actual order of ~110+ units (the
-  1,000-unit quote may have different per-unit economics at a smaller order size — confirm).
+- Confirm whether a smaller lot than 1,000 is available and its price — only ~110 are actually
+  needed, and the ₪250 quote is specifically for the full 1,000-unit lot. If no smaller lot
+  exists, ₪250 for the full 1,000 is the real cash requirement regardless.
 
 **Stickers:**
-- Confirm whether the ₪80 quote includes VAT.
+- **Priority: get a new quote for a quantity that actually covers ~110+ units.** The only quote
+  on file (100 for ₪80) is too small, and its per-unit rate cannot be assumed to hold at a larger
+  volume — both the price and the available order quantity for an adequate purchase are unknown.
+- Confirm whether that new quote includes VAT.
 - Confirm whether delivery is included or billed separately.
-- Confirm the minimum order quantity and lead time — this directly sets the "recommended order
-  quantity" once the workbook's placeholder MOQ is replaced with a real number.
 - Confirm sticker material/adhesive suitability for the box surface (relevant to the packing
   test's "sticker placement" check).
 
@@ -197,13 +203,17 @@ launch date gets set, and the actual order deadline falls out directly.
 - Approve, reject, or modify the proposed packaging rule in Section 1.
 - Decide the bundle-order % to plan around (currently a 15% model assumption, not a known rate).
 - Decide the spare/waste buffer % to hold (currently 5%, editable).
-- Decide whether to place the cards/stickers/boxes orders now at the recommended quantities, or
-  wait for real pre-launch order data.
+- Decide whether to place the full-lot cards order (₪250) and boxes order (₪700) now, or wait for
+  real pre-launch order data — there's no smaller purchase option for either, so this is a binary
+  buy-now-or-wait call, not a "how many" call.
+- Get a new sticker quote covering the real requirement before any sticker purchase decision can
+  even be framed.
 - Approve box artwork/branding before requesting a printed-box quote.
 - Decide who chases each vendor question in Section 9 (per the launch command center, this falls
   under "packaging," which is joint between the two founders).
-- Decide whether the ₪596.75+ additional packaging cash comes out of the ₪13,000 starting
-  investment or is tracked as a separate near-term spend line.
+- Decide whether the ₪950+ additional packaging cash (cards + boxes, before stickers/printing/
+  VAT/delivery are resolved) comes out of the ₪13,000 starting investment or is tracked as a
+  separate near-term spend line.
 
 ---
 
